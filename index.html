@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fun Picture Gallery</title>
+  <style>
+    /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-1 {
+      background-color: #ffffff;
+    }
+
+    /* --- Background words for page-1 --- */
+    .background-words {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .word {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      opacity: 0.3;
+      user-select: none;
+      font-size: 24px;
+      color: #505050;
+    }
+
+    /* Main background text only on page-1 */
+    .NIAT {
+      color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      font-size: 4.5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .BANGET {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .SAMPE {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 40%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      font-size: 5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+     .LIAT {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 38%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      font-size: 2vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .KESINI {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 30%;
+      left: 38%;
+      transform: translate(-50%, -50%);
+      font-size: 5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      transform: rotate(90deg);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .NYARI {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 60%;
+      left: 48%;
+      transform: translate(-50%, -50%);
+      font-size: 5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+     .APA {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 48%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      font-size: 4.5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .COBA {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 19%;
+      left: 22%;
+      transform: translate(-50%, -50%);
+      font-size: 4.5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text9 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 55%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      font-size: 5vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text10 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 68%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text11 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 10%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text12 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 28%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text13 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 40%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text14 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 47%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text15 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 55%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text16 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 63%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text17 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 71%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text18 {
+       color: #ffffff; /* Same as background */
+    -webkit-text-stroke: 1.5px #ffffff; /* Orange outline */
+      position: absolute;
+      top: 79%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      font-size: 4.3vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+    }
+    
+
+    .background-text19 {
+      position: absolute;
+      top: 27%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 15vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #002455;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text20 {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 15vw;
+      font-weight: bold;
+      opacity: 10;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #002455;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text21 {
+      position: absolute;
+      top: 95%;
+      left: 53%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8vw;
+      font-weight: bold;
+      opacity: 0.3;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #505050;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text22 {
+      position: absolute;
+      top: 95%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8vw;
+      font-weight: bold;
+      opacity: 0.3;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #505050;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .background-text23 {
+      position: absolute;
+      top: 95%;
+      left: 47%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8vw;
+      font-weight: bold;
+      opacity: 0.3;
+      white-space: nowrap;
+      z-index: 1;
+      font-family: "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #505050;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+ <!--  Page 1 -->
+  <div class="page page-1">
+    <div class="background-words" id="words1"></div>
+    <div class="NIAT">ENDLESS</div>
+    <div class="BANGET">IM TIRED</div>
+    <div class="SAMPE">I WASTED</div>
+    <div class="LIAT">YEARS</div>
+    <div class="KESINI">I DID CROSS</div>
+    <div class="NYARI">THE LINE</div>
+    <div class="APA">FOR</div>
+    <div class="COBA">THING</div>
+    <div class="background-text9">USELESS</div>
+    <div class="background-text10">THINGS</div>
+    <div class="background-text11">DID</div>
+    <div class="background-text12">I</div>
+    <div class="background-text13">DISAPPOINT</div>
+    <div class="background-text14">YOU?</div>
+    <div class="background-text15">I'VE BEEN</div>
+    <div class="background-text16">THINKING</div>
+    <div class="background-text17">TOO</div>
+    <div class="background-text18">MUCH</div>
+    <div class="background-text19">GET SOME</div>
+    <div class="background-text20">HELP</div>
+    <div class="background-text21">S'TI</div>
+    <div class="background-text22">LLA</div>
+    <div class="background-text23">EKAF</div>
+  </div>
+ 
+  <script>
+    const words1 = [
+      'HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAICANTFEELTHELIGHTHAHAHAHAHAHAHAHDEATHGREETMEWARMNOWIWILLJUSTSAYGOODBYEAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHADIDICROSSTHELINE?HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA'
+    ];
+    const words3 = [
+      'HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAICANTFEELTHELIGHTHAHAHAHAHAHAHAHDEATHGREETMEWARMNOWIWILLJUSTSAYGOODBYEAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHADIDICROSSTHELINE?HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH'
+    ];
+    const words2 = [
+      'HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA'
+    ];
+
+    function generateAlignedWords(containerId, wordsArray) {
+      const container = document.getElementById(containerId);
+
+      const repeatedWords = [];
+      for (let i = 0; i < 150; i++) {
+        repeatedWords.push(wordsArray[Math.floor(Math.random() * wordsArray.length)]);
+      }
+
+      repeatedWords.forEach((wordText) => {
+        const word = document.createElement('div');
+        word.className = 'word';
+        word.textContent = wordText;
+        container.appendChild(word);
+      });
+    }
+    generateAlignedWords('words1', words1);
+    generateAlignedWords('words2', words2);
+    generateAlignedWords('words2', words3);
+  </script>
+</body>
+</html>
